@@ -1,0 +1,239 @@
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 5000 entries, 0 to 4999
+Data columns (total 20 columns):
+ #   Column                             Non-Null Count  Dtype  
+---  ------                             --------------  -----  
+ 0   Age                                5000 non-null   int64  
+ 1   Gender                             5000 non-null   object 
+ 2   Urban_Rural                        5000 non-null   object 
+ 3   BMI                                5000 non-null   float64
+ 4   Waist_Hip_Ratio                    5000 non-null   float64
+ 5   Heart_Rate                         5000 non-null   int64  
+ 6   Hypertension                       5000 non-null   object 
+ 7   Cholesterol_Level                  5000 non-null   object 
+ 8   Physical_Activity                  5000 non-null   object 
+ 9   Diet_Type                          5000 non-null   object 
+ 10  Smoking_Status                     5000 non-null   object 
+ 11  Alcohol_Intake                     2539 non-null   object 
+ 12  Stress_Level                       5000 non-null   object 
+ 13  Sleep_Quality                      5000 non-null   object 
+ 14  Family_History                     5000 non-null   object 
+ 15  Medication_For_Chronic_Conditions  5000 non-null   object 
+ 16  Thyroid_Condition                  5000 non-null   object 
+ 17  Polycystic_Ovary_Syndrome          5000 non-null   object 
+ 18  Gestational_Diabetes               5000 non-null   object 
+ 19  Diabetes_Status                    5000 non-null   object 
+dtypes: float64(2), int64(2), object(16)
+memory usage: 781.4+ KB
+['Yes' 'No']
+Diabetes_Status
+1    3098
+0    1902
+Name: count, dtype: int64
+int64
+Missing Alcohol_Intake: 2461
+Alcohol_Intake
+Unknown     2461
+Moderate    2063
+High         476
+Name: count, dtype: int64
+Remaining missing: 0
+Added advanced features: Metabolic_Syndrome_Score, High_Risk_Lifestyle
+
+Correlation with Target:
+Diabetes_Status             1.000000
+BMI_Age_Interaction         0.613766
+Risk_Factor_Count           0.575936
+Age                         0.534055
+Metabolic_Syndrome_Score    0.399638
+BMI                         0.371161
+High_Risk_Lifestyle         0.153478
+Waist_Hip_Ratio            -0.010158
+Heart_Rate                 -0.010987
+Name: Diabetes_Status, dtype: float64
+Remaining features: 25
+Age                                  1
+Gender                               1
+Urban_Rural                          1
+BMI                                  1
+Waist_Hip_Ratio                      1
+Heart_Rate                           1
+Hypertension                         1
+Cholesterol_Level                    1
+Physical_Activity                    1
+Diet_Type                            1
+Smoking_Status                       1
+Alcohol_Intake                       1
+Stress_Level                         1
+Sleep_Quality                        1
+Family_History                       1
+Medication_For_Chronic_Conditions    1
+Thyroid_Condition                    1
+Polycystic_Ovary_Syndrome            1
+Gestational_Diabetes                 1
+BMI_Category                         1
+Age_Group                            1
+BMI_Age_Interaction                  1
+Risk_Factor_Count                    1
+Metabolic_Syndrome_Score             1
+High_Risk_Lifestyle                  1
+Name: count, dtype: int64
+Features shape: (5000, 25)
+Target shape: (5000,)
+Train shape: (4000, 25)
+Test shape: (1000, 25)
+
+Train distribution:
+ Diabetes_Status
+1    0.6195
+0    0.3805
+Name: proportion, dtype: float64
+
+Test distribution:
+ Diabetes_Status
+1    0.62
+0    0.38
+Name: proportion, dtype: float64
+Categorical features: 15
+['Gender', 'Urban_Rural', 'Hypertension', 'Cholesterol_Level', 'Physical_Activity', 'Diet_Type', 'Smoking_Status', 'Alcohol_Intake', 'Stress_Level', 'Sleep_Quality', 'Family_History', 'Medication_For_Chronic_Conditions', 'Thyroid_Condition', 'Polycystic_Ovary_Syndrome', 'Gestational_Diabetes']
+
+Numerical features: 10
+['Age', 'BMI', 'Waist_Hip_Ratio', 'Heart_Rate', 'BMI_Category', 'Age_Group', 'BMI_Age_Interaction', 'Risk_Factor_Count', 'Metabolic_Syndrome_Score', 'High_Risk_Lifestyle']
+Updated Categorical features: 17
+['Gender', 'Urban_Rural', 'Hypertension', 'Cholesterol_Level', 'Physical_Activity', 'Diet_Type', 'Smoking_Status', 'Alcohol_Intake', 'Stress_Level', 'Sleep_Quality', 'Family_History', 'Medication_For_Chronic_Conditions', 'Thyroid_Condition', 'Polycystic_Ovary_Syndrome', 'Gestational_Diabetes', 'BMI_Category', 'Age_Group']
+Updated Numerical features: 8
+['Age', 'BMI', 'Waist_Hip_Ratio', 'Heart_Rate', 'BMI_Age_Interaction', 'Risk_Factor_Count', 'Metabolic_Syndrome_Score', 'High_Risk_Lifestyle']
+Encoded train shape: (4000, 49)
+Encoded test shape: (1000, 49)
+
+Starting Hyperparameter Tuning (GridSearch)... this may take a minute.
+Fitting 3 folds for each of 72 candidates, totalling 216 fits
+qt.qpa.plugin: Could not find the Qt platform plugin "wayland" in ""
+/home/chauhan_817/Downloads/UpdatedDiabetes/trainmodel.py:258: FutureWarning: 
+
+Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `y` variable to `hue` and set `legend=False` for the same effect.
+
+  sns.barplot(x=importances[indices[:top_n]], y=[feature_names[i] for i in indices[:top_n]], palette="viridis")
+Best Parameters: {'learning_rate': 0.05, 'max_depth': 3, 'min_samples_leaf': 1, 'n_estimators': 200, 'subsample': 0.9}
+Best CV Accuracy: 0.9050
+Accuracy: 0.887
+ROC-AUC: 0.9673132427843802
+
+Confusion Matrix:
+ [[320  60]
+ [ 53 567]]
+
+Classification Report:
+               precision    recall  f1-score   support
+
+           0       0.86      0.84      0.85       380
+           1       0.90      0.91      0.91       620
+
+    accuracy                           0.89      1000
+   macro avg       0.88      0.88      0.88      1000
+weighted avg       0.89      0.89      0.89      1000
+
+Saved confusion_matrix.png
+Saved roc_curve.png
+Saved feature_importance.png
+Saved prob_dist.png
+Saved precision_recall_curve.png
+
+Model saved to 'diabetes_model.pkl'
+Preprocessor saved to 'preprocessor.pkl'
+Exception ignored in: <function ResourceTracker.__del__ at 0x7c2c44b83a60>
+Traceback (most recent call last):
+  File "/home/chauhan_817/anaconda3/lib/python3.13/multiprocessing/resource_tracker.py", line 82, in __del__
+  File "/home/chauhan_817/anaconda3/lib/python3.13/multiprocessing/resource_tracker.py", line 91, in _stop
+  File "/home/chauhan_817/anaconda3/lib/python3.13/multiprocessing/resource_tracker.py", line 116, in _stop_locked
+ChildProcessError: [Errno 10] No child processes
+Exception ignored in: <function ResourceTracker.__del__ at 0x7f92ebf83a60>
+Traceback (most recent call last):
+  File "/home/chauhan_817/anaconda3/lib/python3.13/multiprocessing/resource_tracker.py", line 82, in __del__
+  File "/home/chauhan_817/anaconda3/lib/python3.13/multiprocessing/resource_tracker.py", line 91, in _stop
+  File "/home/chauhan_817/anaconda3/lib/python3.13/multiprocessing/resource_tracker.py", line 116, in _stop_locked
+ChildProcessError: [Errno 10] No child processes
+Exception ignored in: <function ResourceTracker.__del__ at 0x7f8ac4783a60>
+Traceback (most recent call last):
+  File "/home/chauhan_817/anaconda3/lib/python3.13/multiprocessing/resource_tracker.py", line 82, in __del__
+Exception ignored in: <function ResourceTracker.__del__ at 0x7d659118ba60>
+Traceback (most recent call last):
+  File "/home/chauhan_817/anaconda3/lib/python3.13/multiprocessing/resource_tracker.py", line 91, in _stop
+  File "/home/chauhan_817/anaconda3/lib/python3.13/multiprocessing/resource_tracker.py", line 82, in __del__
+  File "/home/chauhan_817/anaconda3/lib/python3.13/multiprocessing/resource_tracker.py", line 116, in _stop_locked
+ChildProcessError: [Errno 10] No child processes
+  File "/home/chauhan_817/anaconda3/lib/python3.13/multiprocessing/resource_tracker.py", line 91, in _stop
+  File "/home/chauhan_817/anaconda3/lib/python3.13/multiprocessing/resource_tracker.py", line 116, in _stop_locked
+ChildProcessError: [Errno 10] No child processes
+Exception ignored in: <function ResourceTracker.__del__ at 0x7361f957fa60>
+Traceback (most recent call last):
+  File "/home/chauhan_817/anaconda3/lib/python3.13/multiprocessing/resource_tracker.py", line 82, in __del__
+  File "/home/chauhan_817/anaconda3/lib/python3.13/multiprocessing/resource_tracker.py", line 91, in _stop
+  File "/home/chauhan_817/anaconda3/lib/python3.13/multiprocessing/resource_tracker.py", line 116, in _stop_locked
+ChildProcessError: [Errno 10] No child processes
+Exception ignored in: <function ResourceTracker.__del__ at 0x7802f798ba60>
+Traceback (most recent call last):
+  File "/home/chauhan_817/anaconda3/lib/python3.13/multiprocessing/resource_tracker.py", line 82, in __del__
+  File "/home/chauhan_817/anaconda3/lib/python3.13/multiprocessing/resource_tracker.py", line 91, in _stop
+  File "/home/chauhan_817/anaconda3/lib/python3.13/multiprocessing/resource_tracker.py", line 116, in _stop_locked
+ChildProcessError: [Errno 10] No child processes
+Exception ignored in: <function ResourceTracker.__del__ at 0x7fee9c17fa60>
+Traceback (most recent call last):
+  File "/home/chauhan_817/anaconda3/lib/python3.13/multiprocessing/resource_tracker.py", line 82, in __del__
+  File "/home/chauhan_817/anaconda3/lib/python3.13/multiprocessing/resource_tracker.py", line 91, in _stop
+  File "/home/chauhan_817/anaconda3/lib/python3.13/multiprocessing/resource_tracker.py", line 116, in _stop_locked
+ChildProcessError: [Errno 10] No child processes
+Exception ignored in: <function ResourceTracker.__del__ at 0x7dcdcd187a60>
+Traceback (most recent call last):
+  File "/home/chauhan_817/anaconda3/lib/python3.13/multiprocessing/resource_tracker.py", line 82, in __del__
+  File "/home/chauhan_817/anaconda3/lib/python3.13/multiprocessing/resource_tracker.py", line 91, in _stop
+  File "/home/chauhan_817/anaconda3/lib/python3.13/multiprocessing/resource_tracker.py", line 116, in _stop_locked
+ChildProcessError: [Errno 10] No child processes
+Exception ignored in: <function ResourceTracker.__del__ at 0x7f841697fa60>
+Traceback (most recent call last):
+  File "/home/chauhan_817/anaconda3/lib/python3.13/multiprocessing/resource_tracker.py", line 82, in __del__
+  File "/home/chauhan_817/anaconda3/lib/python3.13/multiprocessing/resource_tracker.py", line 91, in _stop
+  File "/home/chauhan_817/anaconda3/lib/python3.13/multiprocessing/resource_tracker.py", line 116, in _stop_locked
+ChildProcessError: [Errno 10] No child processes
+Exception ignored in: <function ResourceTracker.__del__ at 0x7bd7a0f8fa60>
+Traceback (most recent call last):
+  File "/home/chauhan_817/anaconda3/lib/python3.13/multiprocessing/resource_tracker.py", line 82, in __del__
+  File "/home/chauhan_817/anaconda3/lib/python3.13/multiprocessing/resource_tracker.py", line 91, in _stop
+  File "/home/chauhan_817/anaconda3/lib/python3.13/multiprocessing/resource_tracker.py", line 116, in _stop_locked
+ChildProcessError: [Errno 10] No child processes
+Exception ignored in: <function ResourceTracker.__del__ at 0x72f9b5b7fa60>
+Traceback (most recent call last):
+  File "/home/chauhan_817/anaconda3/lib/python3.13/multiprocessing/resource_tracker.py", line 82, in __del__
+  File "/home/chauhan_817/anaconda3/lib/python3.13/multiprocessing/resource_tracker.py", line 91, in _stop
+  File "/home/chauhan_817/anaconda3/lib/python3.13/multiprocessing/resource_tracker.py", line 116, in _stop_locked
+ChildProcessError: [Errno 10] No child processes
+Exception ignored in: <function ResourceTracker.__del__ at 0x72acdeb8ba60>
+Traceback (most recent call last):
+  File "/home/chauhan_817/anaconda3/lib/python3.13/multiprocessing/resource_tracker.py", line 82, in __del__
+  File "/home/chauhan_817/anaconda3/lib/python3.13/multiprocessing/resource_tracker.py", line 91, in _stop
+  File "/home/chauhan_817/anaconda3/lib/python3.13/multiprocessing/resource_tracker.py", line 116, in _stop_locked
+ChildProcessError: [Errno 10] No child processes
+Exception ignored in: <function ResourceTracker.__del__ at 0x71158058ba60>
+Traceback (most recent call last):
+  File "/home/chauhan_817/anaconda3/lib/python3.13/multiprocessing/resource_tracker.py", line 82, in __del__
+  File "/home/chauhan_817/anaconda3/lib/python3.13/multiprocessing/resource_tracker.py", line 91, in _stop
+  File "/home/chauhan_817/anaconda3/lib/python3.13/multiprocessing/resource_tracker.py", line 116, in _stop_locked
+ChildProcessError: [Errno 10] No child processes
+Exception ignored in: <function ResourceTracker.__del__ at 0x7253d7187a60>
+Traceback (most recent call last):
+  File "/home/chauhan_817/anaconda3/lib/python3.13/multiprocessing/resource_tracker.py", line 82, in __del__
+  File "/home/chauhan_817/anaconda3/lib/python3.13/multiprocessing/resource_tracker.py", line 91, in _stop
+  File "/home/chauhan_817/anaconda3/lib/python3.13/multiprocessing/resource_tracker.py", line 116, in _stop_locked
+ChildProcessError: [Errno 10] No child processes
+Exception ignored in: <function ResourceTracker.__del__ at 0x7d402f387a60>
+Traceback (most recent call last):
+  File "/home/chauhan_817/anaconda3/lib/python3.13/multiprocessing/resource_tracker.py", line 82, in __del__
+  File "/home/chauhan_817/anaconda3/lib/python3.13/multiprocessing/resource_tracker.py", line 91, in _stop
+  File "/home/chauhan_817/anaconda3/lib/python3.13/multiprocessing/resource_tracker.py", line 116, in _stop_locked
+ChildProcessError: [Errno 10] No child processes
+Exception ignored in: <function ResourceTracker.__del__ at 0x7cdf0d37ba60>
+Traceback (most recent call last):
+  File "/home/chauhan_817/anaconda3/lib/python3.13/multiprocessing/resource_tracker.py", line 82, in __del__
+  File "/home/chauhan_817/anaconda3/lib/python3.13/multiprocessing/resource_tracker.py", line 91, in _stop
+  File "/home/chauhan_817/anaconda3/lib/python3.13/multiprocessing/resource_tracker.py", line 116, in _stop_locked
+ChildProcessError: [Errno 10] No child processes

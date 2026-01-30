@@ -1,0 +1,100 @@
+/* Medical Royal Red Theme */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+/* Card Styling */
+.card {
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+}
+
+.card-header {
+    /* Royal Red Gradient */
+    background: linear-gradient(135deg, #a40606 0%, #d90429 100%) !important;
+}
+
+/* Overriding Bootstrap Utils for Theme Consistency */
+.text-primary {
+    color: #d90429 !important;
+    /* Royal Red */
+}
+
+.bg-primary {
+    background-color: #d90429 !important;
+}
+
+/* Form Controls */
+.form-control,
+.form-select {
+    border: 2px solid #e9ecef;
+    border-radius: 10px;
+    padding: 12px;
+    transition: all 0.2s;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #d90429;
+    box-shadow: 0 0 0 4px rgba(217, 4, 41, 0.15);
+}
+
+/* Button */
+.btn-primary {
+    /* Deep Red to Bright Red Gradient */
+    background: linear-gradient(135deg, #d90429 0%, #ef233c 100%);
+    border: none;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #bf0323 0%, #d90429 100%);
+}
+
+.btn-primary:active {
+    transform: scale(0.98);
+}
+
+.hover-elevate:hover {
+    box-shadow: 0 10px 20px rgba(217, 4, 41, 0.3) !important;
+}
+
+/* Animations */
+.fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Result Colors */
+.text-danger-custom {
+    color: #d90429;
+}
+
+.text-success-custom {
+    color: #198754;
+}
+
+.bg-danger-custom {
+    background-color: #d90429;
+}
+
+.bg-success-custom {
+    background-color: #198754;
+}
