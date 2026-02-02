@@ -1,8 +1,11 @@
 # Diabetes Risk Prediction
 
-🚀 **Live Demo:** [https://diabetesriskprediction-xhfq.onrender.com](https://diabetesriskprediction-xhfq.onrender.com)
+A machine learning project that predicts an individual’s diabetes risk using demographic, lifestyle, and medical history features. The pipeline includes data cleaning, feature engineering (risk scores and interaction terms), categorical encoding, class imbalance handling, and model evaluation using ROC and Precision–Recall metrics.
 
-A machine learning-powered web application that estimates diabetes risk based on health indicators.
+The system is designed as a risk stratification tool, not a diagnostic replacement, providing early identification of high-risk individuals to support preventive healthcare and data-driven decision-making.
+
+ **Live Demo:** [https://diabetesriskprediction-xhfq.onrender.com](https://diabetesriskprediction-xhfq.onrender.com)
+
 
 ## Features
 - **Instant Prediction:** Returns "High Risk" or "Low Risk" with a probability score.
