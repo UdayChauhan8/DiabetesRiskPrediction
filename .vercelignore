@@ -1,0 +1,23 @@
+# Virtual Environment
+venv
+.venv
+env
+
+# Byte-compiled / Optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Data sets (not needed for inference if model works)
+*.csv
+.DS_Store
+
+# Logs
+*.log
+
+# Diagrams and images
+*.png
+
+# Git
+.git
+.gitignore
