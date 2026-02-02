@@ -1,4 +1,6 @@
 import pandas as pd
+import matplotlib
+matplotlib.use('Agg') # Fix for "Qt platform plugin" error on headless systems
 import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
@@ -42,7 +44,6 @@ leakage_cols = [
 X = df.drop("Diabetes_Status", axis=1)
 y = df["Diabetes_Status"]
 
-# --- MEANINGFUL FEATURE ENGINEERING ---
 # 1. BMI Categories (Standard medical ranges)
 # Underweight: <18.5, Normal: 18.5-24.9, Overweight: 25-29.9, Obese: >=30
 X["BMI_Category"] = pd.cut(
@@ -193,7 +194,7 @@ grid_search = GridSearchCV(
     param_grid=param_grid,
     cv=3,
     scoring='accuracy',
-    n_jobs=-1,
+    n_jobs=1,
     verbose=1
 )
 

@@ -1,13 +1,17 @@
 from flask import Flask, render_template, request, jsonify
 import joblib
+import os
 import pandas as pd
 import numpy as np
 
 app = Flask(__name__)
 
 # Load Model and Preprocessor
-model = joblib.load('diabetes_model.pkl')
-preprocessor = joblib.load('preprocessor.pkl')
+model_path = os.path.join(os.path.dirname(__file__), 'diabetes_model.pkl')
+preprocessor_path = os.path.join(os.path.dirname(__file__), 'preprocessor.pkl')
+
+model = joblib.load(model_path)
+preprocessor = joblib.load(preprocessor_path)
 
 @app.route('/')
 def home():
